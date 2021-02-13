@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "https://library-express-api.herokuapp.com/change-password" \
+curl "https://tic-tac-toe-api-development.herokuapp.com/sign-out" \
   --include \
   --request DELETE \
   --header "Authorization: Bearer ${TOKEN}" \
