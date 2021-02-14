@@ -9,5 +9,12 @@ const authEvents = require('./auth/events')
 
 $(() => {
   // $('#sign-in').on('submit', authEvents.onSignIn)
+
   $('#sign-in').on('submit', authEvents.onSignIn)
+
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-up-card').hide()
+  $('#change-password-card').hide()
+  $('#sign-in-card').hide()
+
 })

@@ -1,16 +1,45 @@
 const store = require('./../store');
 
-const signInSuccess = function(response) {
-  event.preventDefault()
+const signInSuccess = function (response) {
+  console.log(response)
   console.log('Response from API: ', response)
   store.user = response.user
 
   console.log('Store object is now: ', store)
-  $('#error-message').text('Thank you for signing in')
-  $('#sign-in').hide()
+  // $('#error-message').text('Thank you for signing in')
+  $('#sign-in').trigger('reset')
+  $('#sign-in-card').hide()
   $('#game-ui').html('GAME UI is HERE!!')
 }
 
+const signInFailure = function () {
+  $('#error-message').text('Sign in failed, please try again')
+}
+
+const signUpSuccess = function(response) {
+  $('#error-message').text('Thank you for signing up!')
+  $('#sign-up').trigger('reset')
+}
+
+const signUpFailure = function(response) {
+  $('#error-message').text('Sign up failed, please try again')
+}
+
+const changePasswordSuccess = function(response) {
+
+  $('#error-message').text('Password was successfully changed')
+  $('#change-password').trigger('reset')
+}
+const changePasswordFailure = function(response) {
+
+  $('#error-message').text('Password change failed!')
+}
+
 module.exports = {
-  signInSuccess
+  signInSuccess,
+  signInFailure,
+  signUpSuccess,
+  signUpFailure,
+  changePasswordSuccess,
+  changePasswordFailure
 }
