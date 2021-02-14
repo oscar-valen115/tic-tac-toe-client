@@ -86,11 +86,14 @@ color: white;
 margin-left: 4px;
 }
 .tic-container {
-  border: 5px solid white;
-  width: 2em;
+  // border: 5px solid white;
+  width: 200px;
+  height: auto;
 }
+
+
 .tic-box {
-  border: 5px solid white;
+  border: 4px solid rgb(17, 159, 145);
   text-align: center;
 
 }
