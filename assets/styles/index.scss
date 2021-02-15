@@ -91,9 +91,18 @@ margin-left: 4px;
   height: auto;
 }
 
-
 .tic-box {
   border: 4px solid rgb(17, 159, 145);
   text-align: center;
+}
 
+#logged-in-user {
+  width: 100%;
+  height: auto;
+  margin-top: 5rem;
+}
+
+#tic-container {
+  height: 100%;
+  width: auto;
 }

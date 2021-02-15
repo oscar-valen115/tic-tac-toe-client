@@ -12,9 +12,9 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <div class="container" id="auth-section">
+      <div class="container">
         	<div class="d-flex justify-content-center h-100">
-
+            <section id="auth-section">
             <!-- Sign in card -->
             <div class="card" id="sign-in-card">
         			<div class="card-header">
@@ -121,7 +121,6 @@
                         <input type="submit" value="Submit" class="btn float-right login_btn">
                       </div>
                     </form>
-
                     </div>
                     <!-- <div class="card-footer">
                       <div class="d-flex justify-content-center links">
@@ -133,33 +132,40 @@
                     </div> -->
                   </div>
                   <!-- change-password card end -->
+                </section>
+
+                  <!-- Logged in User Interface -->
+                  <section id="logged-in-user">
+                    <div class="row">
+                      <div class="col-6">
+                        <button id="user-profile" class="btn login_btn ">User Profile</button>
+                        <button id="start-game" class="btn login_btn">Start Game</button>
+                        <button id="sign-out" class="btn login_btn">Sign Out</button>
+                        <button id="cancel-game" class="btn login_btn">Cancel Game</button>
+                      </div>
+                        <div class=" col-6 tic-container justify-content-center">
+                          <section id="game-board">
+                            <div class="row tic-row">
+                              <div class="col-4 tic-box" id="box-0"> 0 </div>
+                              <div class="col-4 tic-box" id="box-1"> 1 </div>
+                              <div class="col-4 tic-box" id="box-2"> 2 </div>
+                            </div>
+                            <div class="row tic-row">
+                              <div class="col-4 tic-box" id="box-3"> 3 </div>
+                              <div class="col-4 tic-box" id="box-4"> 4 </div>
+                              <div class="col-4 tic-box" id="box-5"> 5 </div>
+                            </div>
+                            <div class="row tic-row">
+                              <div class="col-4 tic-box" id="box-6"> 6 </div>
+                              <div class="col-4 tic-box" id="box-7"> 7 </div>
+                              <div class="col-4 tic-box" id="box-8"> 8 </div>
+                            </div>
+                        </section>
+                        </div>
+                  </div>
+                </section>
+                <!-- Logged in User Interface End -->
         	</div>
       </div>
-      <div class="container" id="logged-in-user">
-
-        <div id="game-ui">
-          <div class="row">
-            <div class="col-6">start game attributes</div>
-              <div class=" col-6 tic-container justify-content-center">
-                <section id="game-board">
-                  <div class="row tic-row">
-                    <div class="col-4 tic-box" id="box-0"> 0 </div>
-                    <div class="col-4 tic-box" id="box-1"> 1 </div>
-                    <div class="col-4 tic-box" id="box-2"> 2 </div>
-                  </div>
-                  <div class="row tic-row">
-                    <div class="col-4 tic-box" id="box-3"> 3 </div>
-                    <div class="col-4 tic-box" id="box-4"> 4 </div>
-                    <div class="col-4 tic-box" id="box-5"> 5 </div>
-                  </div>
-                  <div class="row tic-row">
-                    <div class="col-4 tic-box" id="box-6"> 6 </div>
-                    <div class="col-4 tic-box" id="box-7"> 7 </div>
-                    <div class="col-4 tic-box" id="box-8"> 8 </div>
-                  </div>
-              </section>
-              </div>
-        </div>
-      </div>
-    </body>
+  </body>
 </html>

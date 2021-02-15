@@ -1,4 +1,4 @@
-const store = require('./../store');
+const store = require('./../store')
 
 const signInSuccess = function (response) {
   console.log(response)
@@ -7,9 +7,10 @@ const signInSuccess = function (response) {
 
   console.log('Store object is now: ', store)
   // $('#error-message').text('Thank you for signing in')
-  $('#sign-in').trigger('reset')
   $('#sign-in-card').hide()
-  $('#game-ui').html('GAME UI is HERE!!')
+  $('#sign-in').trigger('reset')
+
+  $('#logged-in-user').show()
 }
 
 const signInFailure = function () {
