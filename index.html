@@ -139,29 +139,42 @@
                     <div class="row">
                       <div class="col-6">
                         <button id="user-profile" class="btn login_btn ">User Profile</button>
-                        <button id="start-game" class="btn login_btn">Start Game</button>
                         <button id="sign-out" class="btn login_btn">Sign Out</button>
+                        <button id="create-game" class="btn login_btn">Start Game</button>
                         <button id="cancel-game" class="btn login_btn">Cancel Game</button>
+                        <div id="start-game-message"></div>
+                        <div id="player1">
+                          <h3>Player 1</h3>
+                          <p>X</p>
+                        </div>
+
+                        <div id="player2">
+                          <h3>Player 2</h3>
+                          <p>O</p>
+                        </div>
                       </div>
+                      <!-- Tic Tac Toe Board -->
                         <div class=" col-6 tic-container justify-content-center">
+
                           <section id="game-board">
                             <div class="row tic-row">
-                              <div class="col-4 tic-box" id="box-0"> 0 </div>
-                              <div class="col-4 tic-box" id="box-1"> 1 </div>
-                              <div class="col-4 tic-box" id="box-2"> 2 </div>
+                              <div class="col-4 tic-box" data-cell-index='0'>  </div>
+                              <div class="col-4 tic-box" data-cell-index='1'>  </div>
+                              <div class="col-4 tic-box" data-cell-index='2'>  </div>
                             </div>
                             <div class="row tic-row">
-                              <div class="col-4 tic-box" id="box-3"> 3 </div>
-                              <div class="col-4 tic-box" id="box-4"> 4 </div>
-                              <div class="col-4 tic-box" id="box-5"> 5 </div>
+                              <div class="col-4 tic-box" data-cell-index='3'>  </div>
+                              <div class="col-4 tic-box" data-cell-index='4'>  </div>
+                              <div class="col-4 tic-box" data-cell-index='5'>  </div>
                             </div>
                             <div class="row tic-row">
-                              <div class="col-4 tic-box" id="box-6"> 6 </div>
-                              <div class="col-4 tic-box" id="box-7"> 7 </div>
-                              <div class="col-4 tic-box" id="box-8"> 8 </div>
+                              <div class="col-4 tic-box" data-cell-index='6'>  </div>
+                              <div class="col-4 tic-box" data-cell-index='7'>  </div>
+                              <div class="col-4 tic-box" data-cell-index='8'>  </div>
                             </div>
                         </section>
                         </div>
+                        <!-- Tic Tac Toe Board End -->
                   </div>
                 </section>
                 <!-- Logged in User Interface End -->

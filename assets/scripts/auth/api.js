@@ -1,5 +1,5 @@
 const config = require('../config')
-// const store = require('./../store')
+const store = require('./../store')
 
 const signIn = function (data) {
   return $.ajax({
