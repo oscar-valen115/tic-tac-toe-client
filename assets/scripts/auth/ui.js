@@ -1,4 +1,5 @@
 const store = require('./../store')
+const authEvents = require('./events')
 
 const signInSuccess = function (response) {
   console.log(response)
@@ -11,6 +12,7 @@ const signInSuccess = function (response) {
   $('#sign-in').trigger('reset')
 
   $('#logged-in-user').show()
+  $('#change-password-button').show()
   // $('#change-password-card').show()
 }
 
@@ -28,11 +30,21 @@ const signUpFailure = function (response) {
 }
 
 const changePasswordSuccess = function (response) {
-  $('#error-message').text('Password was successfully changed')
+  $('#change-password-card').hide()
   $('#change-password').trigger('reset')
+  $('#logged-in-user').show()
 }
 const changePasswordFailure = function (response) {
   $('#error-message').text('Password change failed!')
+}
+
+const signOutSuccess = function (response) {
+  $('#logged-in-user').hide()
+  $('#sign-in-card').show()
+}
+
+const signOutFailure = function () {
+  $('#error-message').text('Sign out failed, please try again')
 }
 
 module.exports = {
@@ -41,5 +53,7 @@ module.exports = {
   signUpSuccess,
   signUpFailure,
   changePasswordSuccess,
-  changePasswordFailure
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure
 }

@@ -108,13 +108,13 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" name='credentials[password]'  class="form-control" placeholder="New Password" required>
+                        <input type="password" name='passwords[old]'  class="form-control" placeholder="Old Password" required>
                       </div>
                       <div class="input-group form-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" name='credentials[password]'  class="form-control" placeholder="Confirm New Password" required>
+                        <input type="password" name='passwords[new]' class="form-control" placeholder="New Password" required>
                       </div>
                       <div class="form-group">
                         <div id="error-message"> </div>
@@ -122,14 +122,6 @@
                       </div>
                     </form>
                     </div>
-                    <!-- <div class="card-footer">
-                      <div class="d-flex justify-content-center links">
-                        Already have an account?<a href="#">Sign In</a>
-                      </div>
-                      <div class="d-flex justify-content-center">
-                        <a href="#">Forgot your password?</a>
-                      </div>
-                    </div> -->
                   </div>
                   <!-- change-password card end -->
                 </section>
@@ -139,6 +131,7 @@
                     <div class="row">
                       <div class="col-6">
                         <button id="user-profile" class="btn login_btn ">User Profile</button>
+                        <button id="change-password-button" class="btn login_btn">Change Password</button>
                         <button id="sign-out" class="btn login_btn">Sign Out</button>
                         <button id="create-game" class="btn login_btn">Start Game</button>
                         <button id="cancel-game" class="btn login_btn">Cancel Game</button>

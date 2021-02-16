@@ -16,11 +16,21 @@ $(() => {
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-up-card').hide()
   $('#change-password-card').hide()
+
   // $('#sign-in-card').hide()
 
   // Logged in events
   $('#logged-in-user').hide()
   $('#logged-in-user').on('click', '#create-game', gameEvents.onCreateGame)
+  $('#logged-in-user').on('click', '#sign-out', authEvents.onSignOut)
+
+  // successfully change password once logged in to the main UI
+  $('#logged-in-user').on('click', '#change-password-button', function (event) {
+    event.preventDefault()
+    $('#logged-in-user').hide()
+    $('#change-password-card').show()
+    $('#change-password').on('submit', authEvents.onChangePassword)
+  })
 
   // Console log event example that works
   // $('#logged-in-user').on('click', '#box-0', function (event) {

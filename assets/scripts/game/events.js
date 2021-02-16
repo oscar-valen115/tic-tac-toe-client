@@ -23,8 +23,20 @@ const onChooseBox = function (event) {
     .then(ui.chooseBoxSuccess)
     .catch(ui.chooseBoxFailure)
 }
+const isGameWon = function (game) {
+  if (
+    (game.cells[0] === game.cells[1] && game.cells[1] === game.cells[2]) ||
+    (game.cells[0] === game.cells[4] && game.cells[4] === game.cells[8]) ||
+    (game.cells[0] === game.cells[3] && game.cells[3] === game.cells[6]) ||
+    (game.cells[1] === game.cells[4] && game.cells[4] === game.cells[7]) ||
+    (game.cells[2] === game.cells[4] && game.cells[4] === game.cells[6]) ||
+    (game.cells[2] === game.cells[5] && game.cells[5] === game.cells[8]) ||
+    (game.cells[3] === game.cells[4] && game.cells[4] === game.cells[5])
+  ) { return true }
+}
 
 module.exports = {
   onCreateGame,
-  onChooseBox
+  onChooseBox,
+  isGameWon
 }

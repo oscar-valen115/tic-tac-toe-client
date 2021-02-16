@@ -8,17 +8,18 @@ height: 100%;
 font-family: 'Numans', sans-serif;
 }
 
-.container{
-height: 100%;
-align-content: center;
-}
+// .container{
+// height: 100%;
+// align-content: center;
+// }
 
 .card{
-height: 370px;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+  margin-top: 20em;
+  height: 370px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  background-color: rgba(0,0,0,0.5) !important;
 }
 
 // .social_icon span{
@@ -33,7 +34,7 @@ background-color: rgba(0,0,0,0.5) !important;
 // }
 //
 .card-header h3{
-color: white;
+  color: white;
 }
 //
 // .social_icon{
@@ -91,6 +92,9 @@ margin-left: 4px;
   border: 3px solid rgb(17, 159, 145);
   text-align: center;
   padding: 2rem 2rem 2rem 2rem
+}
+.tic-box:hover {
+  background-color: #333;
 }
 
 #logged-in-user {
