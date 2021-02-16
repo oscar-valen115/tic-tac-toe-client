@@ -1,8 +1,8 @@
 #!/bin/bash
 
-curl "https://tic-tac-toe-api-development.herokuapp.com/games" \
+curl "https://tic-tac-toe-api-development.herokuapp.com/games/id" \
   --include \
-  --request POST \
+  --request PATCH \
   --header "Authorization: Bearer ${TOKEN}" \
   --header "Content-Type: application/json" \
   --data '{}'
