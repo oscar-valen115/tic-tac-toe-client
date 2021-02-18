@@ -12,7 +12,7 @@ const signInSuccess = function (response) {
   $('#sign-in').trigger('reset')
 
   $('#logged-in-user').show()
-  $('#change-password-button').show()
+
   // $('#change-password-card').show()
 }
 

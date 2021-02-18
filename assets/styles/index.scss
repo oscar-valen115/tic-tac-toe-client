@@ -1,17 +1,17 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Numans');
+@import './variables.scss';
+
+* {
+  box-sizing: border-box;
+}
 
 html,body{
 // background-color: #333;
-background-color: lightgrey;
-height: 100%;
-font-family: 'Numans', sans-serif;
+  background-color: lightgrey;
+  height: 100%;
+  font-family: 'Numans', sans-serif;
 }
-
-// .container{
-// height: 100%;
-// align-content: center;
-// }
 
 .card{
   margin-top: 20em;
@@ -22,26 +22,10 @@ font-family: 'Numans', sans-serif;
   background-color: rgba(0,0,0,0.5) !important;
 }
 
-// .social_icon span{
-// font-size: 60px;
-// margin-left: 10px;
-// color: #FFC312;
-// }
-//
-// .social_icon span:hover{
-// color: white;
-// cursor: pointer;
-// }
-//
+
 .card-header h3{
   color: white;
 }
-//
-// .social_icon{
-// position: absolute;
-// right: 20px;
-// top: -45px;
-// }
 
 .input-group-prepend span{
 width: 50px;
@@ -55,18 +39,6 @@ outline: 0 0 0 0  !important;
 box-shadow: 0 0 0 0 !important;
 
 }
-
-// .remember{
-// color: white;
-// }
-//
-// .remember input
-// {
-// width: 20px;
-// height: 20px;
-// margin-left: 15px;
-// margin-right: 5px;
-// }
 
 .login_btn{
 color: black;
@@ -87,16 +59,6 @@ color: white;
 margin-left: 4px;
 }
 
-
-.tic-box {
-  border: 3px solid rgb(17, 159, 145);
-  text-align: center;
-  padding: 2rem 2rem 2rem 2rem
-}
-.tic-box:hover {
-  background-color: #333;
-}
-
 #logged-in-user {
   width: 100%;
   height: auto;
@@ -104,21 +66,50 @@ margin-left: 4px;
 }
 
 .tic-container {
-  margin-top: 10rem;
-  height: 100%;
-  width: auto;
+  // margin-top: 10rem;
+  // height: 100%;
+  // width: auto;
 }
+.game-board {
+  width: 50vw;
+  height: 50vh;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: repeat(3, auto);
+}
+
+.tic-box {
+  // border: 3px solid rgb(17, 159, 145);
+  // text-align: center;
+  // padding: 2rem 2rem 2rem 2rem
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  cursor: pointer
+}
+// .tic-box:hover {
+//   background-color: #333;
+// }
 
 #player1 {
   justify-content: center;
   text-align: center;
   border: 1px solid black;
+  display: none;
 }
 
 #player2 {
   justify-content: center;
   text-align: center;
   border: 1px solid black;
+  display: none;
 }
 #box-0,#box-3,#box-6 {
   border-left-style: none;
@@ -134,4 +125,90 @@ margin-left: 4px;
 
 #box-6,#box-7,#box-8 {
   border-bottom-style: none;
+}
+
+
+// .tic-box:first-child,
+// .tic-box:nth-child(2),
+// .tic-box:nth-child(3) {
+//   border-top: none;
+// }
+//
+// .tic-box:nth-child(3n + 1) {
+//   border-left: none;
+// }
+//
+// .tic-box:nth-child(3n + 3) {
+//   border-right: none;
+// }
+//
+// .tic-box:last-child,
+// .tic-box:nth-child(8),
+// .tic-box:nth-child(7) {
+//   border-bottom: none;
+// }
+
+.tic-box.x,
+.tic-box.o {
+  cursor: not-allowed;
+}
+
+.tic-box.x::before,
+.tic-box.x::after,
+.tic-box.o::before {
+  background-color: black;
+}
+
+.game-board.x .tic-box:not(.x):not(.o):hover::before,
+.game-board.x .tic-box:not(.x):not(.o):hover::after,
+.game-board.o .tic-box:not(.x):not(.o):hover::before {
+  background-color: lightgrey;
+}
+
+.game-board.o .tic-box:not(.x):not(.o):hover::before,
+.game-board.o .tic-box:not(.x):not(.o):hover::after {
+  background-color: lightgrey;
+}
+
+.tic-box.x::before,
+.tic-box.x::after,
+.game-board.x .tic-box:not(.x):not(.o):hover::before,
+.game-board.x .tic-box:not(.x):not(.o):hover::after {
+  content: "";
+  position: absolute;
+  width: calc($tic-box-mark-size * 0.15);
+  height: calc($tic-box-size * 0.9);
+}
+.tic-box.x::before,
+.game-board.x .tic-box:hover::before {
+  transform: rotate(45deg);
+}
+
+.tic-box.x::after,
+.game-board.x .tic-box:hover::after {
+  transform: rotate(-45deg);
+}
+
+.tic-box.o::before,
+.tic-box.o::after,
+.game-board.o .tic-box:not(.x):not(.o):hover::before,
+.game-board.o .tic-box:not(.x):not(.o):hover::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: $tic-box-mark-size;
+  height: $tic-box-mark-size;
+}
+
+.tic-box.o::before,
+.game-board.o .tic-box:not(.x):not(.o):hover::before {
+  width: $tic-box-mark-size;
+  height: $tic-box-mark-size;
+}
+
+.tic-box.o::after,
+.game-board.o .tic-box:not(.x):not(.o):hover::after {
+  width: calc($tic-box-mark-size * 0.7);
+  height: calc($tic-box-mark-size * 0.7);
+  background-color: white;
 }

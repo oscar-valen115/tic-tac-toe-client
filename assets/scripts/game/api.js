@@ -9,12 +9,20 @@ const createGame = function (data) {
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
-    data: {}
+    data: data
   })
 }
 
 const chooseBox = function (data) {
   console.log('ChooseBoxData: ', data)
+  return $.ajax({
+    method: 'PATCH',
+    url: `${config.apiUrl}/games/${store.game._id}`,
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    },
+    data: {}
+  })
 }
 
 module.exports = {

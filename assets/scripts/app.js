@@ -17,6 +17,8 @@ $(() => {
   $('#sign-up-card').hide()
   $('#change-password-card').hide()
 
+
+
   // $('#sign-in-card').hide()
 
   // Logged in events
@@ -37,6 +39,8 @@ $(() => {
   //   console.log('click event logged!', event)
   // })
 
+
+  $('.tic-box').on('click', gameEvents.onGameChooseBox)
   // $('#logged-in-user').on('click', '#box-0', gameEvents.onChooseBox)
   // $('#logged-in-user').on('click', '#box-1', gameEvents.onChooseBox)
   // $('#logged-in-user').on('click', '#box-2', gameEvents.onChooseBox)
