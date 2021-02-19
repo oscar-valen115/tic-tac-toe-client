@@ -17,14 +17,17 @@ $(() => {
   $('#sign-up-card').hide()
   $('#change-password-card').hide()
 
-
-
   // $('#sign-in-card').hide()
 
   // Logged in events
   $('#logged-in-user').hide()
   $('#logged-in-user').on('click', '#create-game', gameEvents.onCreateGame)
   $('#logged-in-user').on('click', '#sign-out', authEvents.onSignOut)
+  $('#sign-up-button').on('click', function(event) {
+    event.preventDefault()
+    $('#sign-in-card').hide()
+    $('#sign-up-card').show()
+  })
 
   // successfully change password once logged in to the main UI
   $('#logged-in-user').on('click', '#change-password-button', function (event) {
