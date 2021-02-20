@@ -23,10 +23,18 @@ $(() => {
   $('#logged-in-user').hide()
   $('#logged-in-user').on('click', '#create-game', gameEvents.onCreateGame)
   $('#logged-in-user').on('click', '#sign-out', authEvents.onSignOut)
+
+
   $('#sign-up-button').on('click', function(event) {
     event.preventDefault()
     $('#sign-in-card').hide()
     $('#sign-up-card').show()
+  })
+
+  $('#sign-in-button').on('click', function (event) {
+    event.preventDefault()
+    $('#sign-up-card').hide()
+    $('#sign-in-card').show()
   })
 
   // successfully change password once logged in to the main UI
@@ -42,6 +50,13 @@ $(() => {
   //   console.log('click event logged!', event)
   // })
 
+
+  // Click event test that works
+  // $('.tic-box').on('click', function (event) {
+  //   console.log('Click Event Data: ', event)
+  //   const data = event.target
+  //   console.log('Targeted Box', data)
+  // })
 
   $('.tic-box').on('click', gameEvents.onGameChooseBox)
   // $('#logged-in-user').on('click', '#box-0', gameEvents.onChooseBox)

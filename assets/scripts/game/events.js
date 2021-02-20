@@ -28,6 +28,7 @@ const onGameChooseBox = function (event) {
   console.log('gameEvent Target Logged here:', event)
 
   const gameIndex = $(gameEvent).data('cell-index')
+  console.log('gameIndex info: ', gameIndex)
   store.turn++
   if (store.turn % 2 === 0) {
     store.turnValue = 'x'

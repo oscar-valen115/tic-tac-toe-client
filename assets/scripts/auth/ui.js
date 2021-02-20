@@ -2,12 +2,10 @@ const store = require('./../store')
 const authEvents = require('./events')
 
 const signInSuccess = function (response) {
-  console.log(response)
   console.log('Response from API: ', response)
   store.user = response.user
 
   console.log('Store object is now: ', store)
-  // $('#error-message').text('Thank you for signing in')
   $('#sign-in-card').hide()
   $('#sign-in').trigger('reset')
 

@@ -5,12 +5,9 @@ const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
 
 const onSignIn = function (event) {
-  console.log('event', event)
   event.preventDefault()
   const form = event.target
-  console.log('form', form)
   const data = getFormFields(form)
-  console.log('data', data)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
