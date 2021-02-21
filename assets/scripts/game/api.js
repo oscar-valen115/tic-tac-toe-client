@@ -13,19 +13,19 @@ const createGame = function (data) {
   })
 }
 
-const chooseBox = function (data) {
-  console.log('ChooseBoxData: ', data)
+const updateGame = function (id, gameInfo) {
+  console.log('updateGame ID, DATA: ', id, gameInfo)
   return $.ajax({
     method: 'PATCH',
-    url: `${config.apiUrl}/games/${store.game._id}`,
+    url: `${config.apiUrl}/games/${id}`,
     headers: {
       Authorization: `Bearer ${store.user.token}`
     },
-    data: {}
+    data: gameInfo
   })
 }
 
 module.exports = {
   createGame,
-  chooseBox
+  updateGame
 }

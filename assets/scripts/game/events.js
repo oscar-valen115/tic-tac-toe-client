@@ -4,9 +4,7 @@ const store = require('./../store')
 
 const getFormFields = require('../../../lib/get-form-fields')
 
-store.turn = 0
 store.turnValue = ''
-// store.click = false
 
 const onCreateGame = function (event) {
   console.log('event', event)
@@ -14,27 +12,35 @@ const onCreateGame = function (event) {
   const form = event.target
   console.log('form: ', form)
   const data = getFormFields(form)
-  console.log('data:',data)
+  console.log('data:', data)
 
   api.createGame(data)
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
 }
 
-const onGameChooseBox = function (event) {
+const onUpdateGame = function (event) {
+  // get data from user input
+  // send data to api for update
+    // handle successful update
+    // handle game over
+    // handle game continue
   event.preventDefault()
   console.log('Event Logged here:', event)
-  const gameEvent = event.target
+  const gameEvent = event.currentTarget
   console.log('gameEvent Target Logged here:', event)
 
   const gameIndex = $(gameEvent).data('cell-index')
   console.log('gameIndex info: ', gameIndex)
-  store.turn++
-  if (store.turn % 2 === 0) {
+  if (store.game.__v % 2 === 0) {
     store.turnValue = 'x'
   } else {
     store.turnValue = 'o'
   }
+const id = store.game._id
+console.log('Game ID Number:', id)
+console.log('Version ID Number:', store.game.__v)
+
   const gameInfo = {
     game: {
       cell: {
@@ -44,19 +50,10 @@ const onGameChooseBox = function (event) {
       over: store.game.over
     }
   }
-  console.log('gameInfo Index: ', gameIndex)
-  console.log('gameInfo value: ', store.turnValue)
-  console.log('gameInfo over: ', store.game.over)
 
-  // get data from user input
-  // send data to api for update
-    // handle successful update
-    // handle game over
-    // handle game continue
-
-  api.chooseBox(gameInfo)
-    .then(ui.chooseBoxSuccess)
-    .catch(ui.chooseBoxFailure)
+  api.updateGame(id, gameInfo)
+    .then(ui.updateGameSuccess)
+    .catch(ui.updateGameFailure)
 }
 // const isGameWon = function (game) {
 //   if (
@@ -78,6 +75,6 @@ const onGameChooseBox = function (event) {
 
 module.exports = {
   onCreateGame,
-  onGameChooseBox,
+  onUpdateGame
   // isGameWon
 }

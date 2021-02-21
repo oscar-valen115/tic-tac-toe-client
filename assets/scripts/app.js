@@ -12,7 +12,6 @@ $(() => {
   // Authentication Events
 
   $('#sign-in').on('submit', authEvents.onSignIn)
-
   $('#sign-up').on('submit', authEvents.onSignUp)
   $('#sign-up-card').hide()
   $('#change-password-card').hide()
@@ -24,13 +23,14 @@ $(() => {
   $('#logged-in-user').on('click', '#create-game', gameEvents.onCreateGame)
   $('#logged-in-user').on('click', '#sign-out', authEvents.onSignOut)
 
-
-  $('#sign-up-button').on('click', function(event) {
+  // From sign-in-card, click sign-up-button to sign up for existing users
+  $('#sign-up-button').on('click', function (event) {
     event.preventDefault()
     $('#sign-in-card').hide()
     $('#sign-up-card').show()
   })
 
+  // From sign-up-card, click sign-in-button to sign in for existing users
   $('#sign-in-button').on('click', function (event) {
     event.preventDefault()
     $('#sign-up-card').hide()
@@ -50,7 +50,6 @@ $(() => {
   //   console.log('click event logged!', event)
   // })
 
-
   // Click event test that works
   // $('.tic-box').on('click', function (event) {
   //   console.log('Click Event Data: ', event)
@@ -58,16 +57,16 @@ $(() => {
   //   console.log('Targeted Box', data)
   // })
 
-  $('.tic-box').on('click', gameEvents.onGameChooseBox)
+  $('.tic-box').on('click', gameEvents.onUpdateGame)
 
 
-  // $('#logged-in-user').on('click', '#box-0', gameEvents.onChooseBox)
-  // $('#logged-in-user').on('click', '#box-1', gameEvents.onChooseBox)
-  // $('#logged-in-user').on('click', '#box-2', gameEvents.onChooseBox)
-  // $('#logged-in-user').on('click', '#box-3', gameEvents.onChooseBox)
-  // $('#logged-in-user').on('click', '#box-4', gameEvents.onChooseBox)
-  // $('#logged-in-user').on('click', '#box-5', gameEvents.onChooseBox)
-  // $('#logged-in-user').on('click', '#box-6', gameEvents.onChooseBox)
-  // $('#logged-in-user').on('click', '#box-7', gameEvents.onChooseBox)
-  // $('#logged-in-user').on('click', '#box-8', gameEvents.onChooseBox)
+  // $('#logged-in-user').on('click', '#box-0', gameEvents.onUpdateGame)
+  // $('#logged-in-user').on('click', '#box-1', gameEvents.onUpdateGame)
+  // $('#logged-in-user').on('click', '#box-2', gameEvents.onUpdateGame)
+  // $('#logged-in-user').on('click', '#box-3', gameEvents.onUpdateGame)
+  // $('#logged-in-user').on('click', '#box-4', gameEvents.onUpdateGame)
+  // $('#logged-in-user').on('click', '#box-5', gameEvents.onUpdateGame)
+  // $('#logged-in-user').on('click', '#box-6', gameEvents.onUpdateGame)
+  // $('#logged-in-user').on('click', '#box-7', gameEvents.onUpdateGame)
+  // $('#logged-in-user').on('click', '#box-8', gameEvents.onUpdateGame)
 })

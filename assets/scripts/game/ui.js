@@ -30,10 +30,6 @@ const clickEvent = function (response) {
   // Switch Turns
 }
 
-// const swapTurns = function () {
-//   xTurn = !xTurn
-// }
-
 // const placeGamePlayHover = function (cell, currentClass) {
 //   $(cell).addClass(currentClass)
 // }
@@ -55,19 +51,20 @@ const createGameSuccess = function (response) {
   console.log('Store Data:', store)
 }
 
-const chooseBoxSuccess = function (response) {
-  console.log('chooseBoxSuccess: ',response)
-  const cell = response.target
+const updateGameSuccess = function (response) {
+  console.log('updateGameSuccess Response: ', response)
+  console.log('Store game Value', store.turnValue)
+  const cell = response.game.cells
   console.log(cell)
-  const currentClass = cell ? $('.game-board').addClass(xClass) : $('.game-board').addClass(circleClass)
+  // const currentClass = cell ? $('.game-board').addClass(xClass) : $('.game-board').addClass(circleClass)
 }
 
-const chooseBoxFailure = function (response) {
-  console.log('chooseBoxFailure: ',response)
+const updateGameFailure = function (response) {
+  console.log('updateGameFailure: ', response)
 }
 
 module.exports = {
   createGameSuccess,
-  chooseBoxSuccess,
-  chooseBoxFailure
+  updateGameSuccess,
+  updateGameFailure
 }
