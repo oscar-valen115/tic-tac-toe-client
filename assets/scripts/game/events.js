@@ -32,14 +32,16 @@ const onUpdateGame = function (event) {
 
   const gameIndex = $(gameEvent).data('cell-index')
   console.log('gameIndex info: ', gameIndex)
+  store.game.__v++
   if (store.game.__v % 2 === 0) {
-    store.turnValue = 'x'
-  } else {
     store.turnValue = 'o'
+  } else {
+    store.turnValue = 'x'
   }
-const id = store.game._id
-console.log('Game ID Number:', id)
-console.log('Version ID Number:', store.game.__v)
+  const id = store.game._id
+  console.log('Game ID Number:', id)
+  console.log('Version ID Number:', store.game.__v)
+  $(gameIndex).addClass(store.turnValue)
 
   const gameInfo = {
     game: {

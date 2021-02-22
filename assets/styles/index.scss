@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 @import './variables.scss';
 
-* {
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
 html,body{
 // background-color: #333;
-  background-color: lightgrey;
+  background-color: white;
   height: 100%;
   font-family: 'Numans', sans-serif;
   color: white;
@@ -66,6 +67,20 @@ margin-left: 4px;
   margin-top: 5rem;
 }
 
+#player1 {
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  display: none;
+}
+
+#player2 {
+  justify-content: center;
+  text-align: center;
+  border: 1px solid black;
+  display: none;
+}
+
 .tic-container {
   // margin-top: 10rem;
   // height: 100%;
@@ -99,19 +114,6 @@ margin-left: 4px;
 //   background-color: #333;
 // }
 
-#player1 {
-  justify-content: center;
-  text-align: center;
-  border: 1px solid black;
-  display: none;
-}
-
-#player2 {
-  justify-content: center;
-  text-align: center;
-  border: 1px solid black;
-  display: none;
-}
 #box-0,#box-3,#box-6 {
   border-left-style: none;
 }

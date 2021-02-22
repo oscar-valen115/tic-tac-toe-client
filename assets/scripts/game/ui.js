@@ -53,10 +53,18 @@ const createGameSuccess = function (response) {
 
 const updateGameSuccess = function (response) {
   console.log('updateGameSuccess Response: ', response)
-  console.log('Store game Value', store.turnValue)
-  const cell = response.game.cells
-  console.log(cell)
+  console.log('Response game Value', store.turnValue)
+  store.game = response.game
+  const addClass = store.turnValue
+  console.log('addClass object: ', addClass)
+
+  const cell = store.game.cells
+  $('.tic-box').addClass(addClass)
+
+  console.log('cell:', cell)
   // const currentClass = cell ? $('.game-board').addClass(xClass) : $('.game-board').addClass(circleClass)
+  console.log('createGameSuccess Version ID: ', store.game.__v)
+  console.log('Current Store Value after SUCCESS: ', store)
 }
 
 const updateGameFailure = function (response) {
