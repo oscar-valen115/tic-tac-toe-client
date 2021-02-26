@@ -85,6 +85,7 @@ margin-left: 4px;
   // margin-top: 10rem;
   // height: 100%;
   // width: auto;
+  border: 1px solid black;
 }
 .game-board {
   width: 50vw;
@@ -129,27 +130,6 @@ margin-left: 4px;
 #box-6,#box-7,#box-8 {
   border-bottom-style: none;
 }
-
-
-// .tic-box:first-child,
-// .tic-box:nth-child(2),
-// .tic-box:nth-child(3) {
-//   border-top: none;
-// }
-//
-// .tic-box:nth-child(3n + 1) {
-//   border-left: none;
-// }
-//
-// .tic-box:nth-child(3n + 3) {
-//   border-right: none;
-// }
-//
-// .tic-box:last-child,
-// .tic-box:nth-child(8),
-// .tic-box:nth-child(7) {
-//   border-bottom: none;
-// }
 
 .tic-box.x,
 .tic-box.o {

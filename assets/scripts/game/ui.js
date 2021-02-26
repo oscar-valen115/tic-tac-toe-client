@@ -18,25 +18,6 @@ const circleClass = 'o'
 //   }
 // }
 
-const clickEvent = function (response) {
-  const cell = response.target
-  console.log(cell)
-  const currentClass = cell ? $('.game-board').addClass(xClass) : $('.game-board').addClass(circleClass)
-  // placeGamePlayHover(cell, currentClass)
-  // swapTurns()
-  // placeMark
-  // Check for win
-  // check for draw
-  // Switch Turns
-}
-
-// const placeGamePlayHover = function (cell, currentClass) {
-//   $(cell).addClass(currentClass)
-// }
-
-// Grabbing elements by their ID
-// const cellElements = document.querySelectorAll('[data-cell-index]')
-
 
 const createGameSuccess = function (response) {
   console.log('createGameSuccessData:', response)
@@ -59,7 +40,7 @@ const updateGameSuccess = function (response) {
   console.log('addClass object: ', addClass)
 
   const cell = store.game.cells
-  $('.tic-box').addClass(addClass)
+  $('.tic-box').addClass(store.turnValue)
 
   console.log('cell:', cell)
   // const currentClass = cell ? $('.game-board').addClass(xClass) : $('.game-board').addClass(circleClass)

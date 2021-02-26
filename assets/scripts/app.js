@@ -45,6 +45,7 @@ $(() => {
     $('#change-password').on('submit', authEvents.onChangePassword)
   })
 
+  // $('#logged-in-user').on('click', '')
   // Console log event example that works
   // $('#logged-in-user').on('click', '#box-0', function (event) {
   //   console.log('click event logged!', event)
@@ -58,15 +59,4 @@ $(() => {
   // })
 
   $('.tic-box').on('click', gameEvents.onUpdateGame)
-
-
-  // $('#logged-in-user').on('click', '#box-0', gameEvents.onUpdateGame)
-  // $('#logged-in-user').on('click', '#box-1', gameEvents.onUpdateGame)
-  // $('#logged-in-user').on('click', '#box-2', gameEvents.onUpdateGame)
-  // $('#logged-in-user').on('click', '#box-3', gameEvents.onUpdateGame)
-  // $('#logged-in-user').on('click', '#box-4', gameEvents.onUpdateGame)
-  // $('#logged-in-user').on('click', '#box-5', gameEvents.onUpdateGame)
-  // $('#logged-in-user').on('click', '#box-6', gameEvents.onUpdateGame)
-  // $('#logged-in-user').on('click', '#box-7', gameEvents.onUpdateGame)
-  // $('#logged-in-user').on('click', '#box-8', gameEvents.onUpdateGame)
 })

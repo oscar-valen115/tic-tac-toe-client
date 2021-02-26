@@ -1,177 +1,185 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Tic Tac  Toe</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-      <link rel="stylesheet" href="./assets/styles/index.scss">
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
+<head>
+  <title>Tic Tac Toe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <div class="container">
-        	<div class="d-flex justify-content-center h-100">
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="./assets/styles/index.scss">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-            <section id="auth-section">
+<body>
 
-            <!-- Sign in card -->
-            <div class="card" id="sign-in-card">
-        			<div class="card-header">
-        				<h3>Sign In</h3>
-        			</div>
-          			<div class="card-body">
-          				<form id="sign-in">
-          					<div class="input-group form-group">
-          						<div class="input-group-prepend">
-          							<span class="input-group-text"><i class="fas fa-user"></i></span>
-          						</div>
-          						<input type="email" name='credentials[email]' class="form-control" placeholder="Email" required>
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
 
-          					</div>
-          					<div class="input-group form-group">
-          						<div class="input-group-prepend">
-          							<span class="input-group-text"><i class="fas fa-key"></i></span>
-          						</div>
-          						<input type="password" name='credentials[password]'  class="form-control" placeholder="Password" required>
-          					</div>
-          					<div class="row align-items-center error-message"> </div>
-          					<div class="form-group">
-                      <div id="error-message"> </div>
-          						<input type="submit" value="Login" class="btn float-right login_btn">
-          					</div>
-          				</form>
-          		   </div>
-                  <div class="card-footer">
-            				<div class="d-flex justify-content-center links">
-            					Don't have an account?<button id="sign-up-button"> Sign Up </button>
-            				</div>
-            				<!-- <div class="d-flex justify-content-center">
+      <section id="auth-section">
+
+        <!-- Sign in card -->
+        <div class="card" id="sign-in-card">
+          <div class="card-header">
+            <h3>Sign In</h3>
+          </div>
+          <div class="card-body">
+            <form id="sign-in">
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input type="email" name='credentials[email]' class="form-control" placeholder="Email" required>
+
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" name='credentials[password]' class="form-control" placeholder="Password"
+                  required>
+              </div>
+              <div class="row align-items-center error-message"> </div>
+              <div class="form-group">
+                <div id="error-message"> </div>
+                <input type="submit" value="Login" class="btn float-right login_btn">
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+              Don't have an account?<button id="sign-up-button"> Sign Up </button>
+            </div>
+            <!-- <div class="d-flex justify-content-center">
             					<a href="#">Forgot your password?</a>
             				</div> -->
-            			</div>
-          	</div>
-              <!-- Sign in card End-->
+          </div>
+        </div>
+        <!-- Sign in card End-->
 
-              <!-- Sign up card -->
-              <div class="card" id="sign-up-card">
-                <div class="card-header">
-                  <h3>Sign Up</h3>
+        <!-- Sign up card -->
+        <div class="card" id="sign-up-card">
+          <div class="card-header">
+            <h3>Sign Up</h3>
+          </div>
+          <div class="card-body">
+            <form id="sign-up">
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
-                <div class="card-body">
-                  <form id="sign-up">
-                    <div class="input-group form-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                      </div>
-                      <input type="email" name='credentials[email]' class="form-control" placeholder="Email" required>
+                <input type="email" name='credentials[email]' class="form-control" placeholder="Email" required>
 
-                    </div>
-                    <div class="input-group form-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                      </div>
-                      <input type="password" name='credentials[password]'  class="form-control" placeholder="Password" required>
-                    </div>
-                    <div class="input-group form-group">
-                      <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                      </div>
-                      <input type="password" name='credentials[password]'  class="form-control" placeholder="Confirm Password" required>
-                    </div>
-                    <div class="form-group">
-                      <div id="error-message"> </div>
-                      <input type="submit" value="Sign Up" class="btn float-right login_btn">
-                    </div>
-                  </form>
-
-                  </div>
-                  <div class="card-footer">
-                    <div class="d-flex justify-content-center links">
-                      Already have an account?<button id="sign-in-button"> Sign In </button>
-                    </div>
-                    <div class="d-flex justify-content-center">
-                      <a href="#">Forgot your password?</a>
-                    </div>
-                  </div>
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <!-- Sign up card end-->
+                <input type="password" name='credentials[password]' class="form-control" placeholder="Password"
+                  required>
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" name='credentials[password]' class="form-control" placeholder="Confirm Password"
+                  required>
+              </div>
+              <div class="form-group">
+                <div id="error-message"> </div>
+                <input type="submit" value="Sign Up" class="btn float-right login_btn">
+              </div>
+            </form>
 
-                <!-- change-password card  -->
-                <div class="card" id="change-password-card">
-                  <div class="card-header">
-                    <h3>Change Password</h3>
-                  </div>
-                  <div class="card-body">
-                    <form id="change-password">
-                      <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" name='passwords[old]'  class="form-control" placeholder="Old Password" required>
-                      </div>
-                      <div class="input-group form-group">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-key"></i></span>
-                        </div>
-                        <input type="password" name='passwords[new]' class="form-control" placeholder="New Password" required>
-                      </div>
-                      <div class="form-group">
-                        <div id="error-message"> </div>
-                        <input type="submit" value="Submit" class="btn float-right login_btn">
-                      </div>
-                    </form>
-                    </div>
-                  </div>
-                  <!-- change-password card end -->
-                </section>
+          </div>
+          <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+              Already have an account?<button id="sign-in-button"> Sign In </button>
+            </div>
+            <div class="d-flex justify-content-center">
+              <a href="#">Forgot your password?</a>
+            </div>
+          </div>
+        </div>
+        <!-- Sign up card end-->
+
+        <!-- change-password card  -->
+        <div class="card" id="change-password-card">
+          <div class="card-header">
+            <h3>Change Password</h3>
+          </div>
+          <div class="card-body">
+            <form id="change-password">
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" name='passwords[old]' class="form-control" placeholder="Old Password" required>
+              </div>
+              <div class="input-group form-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-key"></i></span>
+                </div>
+                <input type="password" name='passwords[new]' class="form-control" placeholder="New Password" required>
+              </div>
+              <div class="form-group">
+                <div id="error-message"> </div>
+                <input type="submit" value="Submit" class="btn float-right login_btn">
+              </div>
+            </form>
+          </div>
+        </div>
+        <!-- change-password card end -->
+      </section>
 
 
-                  <!-- Logged in User Interface -->
-                  <section id="logged-in-user">
-                    <div class="row">
-                      <div class="col-6">
-                        <button id="user-profile" class="btn login_btn ">User Profile</button>
-                        <button id="change-password-button" class="btn login_btn">Change Password</button>
-                        <button id="sign-out" class="btn login_btn">Sign Out</button>
-                        <button id="create-game" class="btn login_btn">Start Game</button>
-                        <button id="cancel-game" class="btn login_btn">Cancel Game</button>
-                        <div id="start-game-message"></div>
-                        <div id="player1">
-                          <h3>Player 1</h3>
-                          <div class="x">x</div>
-                        </div>
+      <!-- Logged in User Interface -->
+      <section id="logged-in-user">
+        <div class="row">
+          <div class="col-6">
+            <button id="user-profile" class="btn login_btn ">User Profile</button>
+            <button id="change-password-button" class="btn login_btn">Change Password</button>
+            <button id="sign-out" class="btn login_btn">Sign Out</button>
+            <button id="create-game" class="btn login_btn">Start Game</button>
+            <button id="cancel-game" class="btn login_btn">Cancel Game</button>
+            <div id="start-game-message"></div>
+            <div id="player1">
+              <h3>Player 1</h3>
+              <div class="x">x</div>
+            </div>
 
-                        <div id="player2">
-                          <h3>Player 2</h3>
-                          <div class="o">O</div>
-                        </div>
-                      </div>
-                      <!-- Tic Tac Toe Board -->
-                        <div class=" col-6 tic-container justify-content-center">
+            <div id="player2">
+              <h3>Player 2</h3>
+              <div class="o">O</div>
+            </div>
+          </div>
+          <!-- Tic Tac Toe Board -->
 
-                          <section class="game-board" id="game-board">
-                              <div class="tic-box x" id="box-0" data-cell-index='0'></div>
-                              <div class="tic-box" id="box-1" data-cell-index='1'></div>
-                              <div class="tic-box" id="box-2" data-cell-index='2'></div>
+          <div class=" col-6 tic-container justify-content-center">
+            <section class="game-board" id="game-board">
 
-                              <div class="tic-box" id="box-3" data-cell-index='3'></div>
-                              <div class="tic-box" id="box-4" data-cell-index='4'></div>
-                              <div class="tic-box" id="box-5" data-cell-index='5'></div>
+              <div class="tic-box x" id="box-0" data-cell-index='0'></div>
+              <div class="tic-box o" id="box-1" data-cell-index='1'></div>
+              <div class="tic-box" id="box-2" data-cell-index='2'></div>
 
-                              <div class="tic-box" id="box-6" data-cell-index='6'></div>
-                              <div class="tic-box" id="box-7" data-cell-index='7'></div>
-                              <div class="tic-box" id="box-8" data-cell-index='8'></div>
-                        </section>
-                      </div>
-                        <!-- Tic Tac Toe Board End -->
-                  </div>
-                </section>
-                <!-- Logged in User Interface End -->
-        	</div>
-      </div>
-  </body>
+              <div class="tic-box" id="box-3" data-cell-index='3'></div>
+              <div class="tic-box" id="box-4" data-cell-index='4'></div>
+              <div class="tic-box" id="box-5" data-cell-index='5'></div>
+
+              <div class="tic-box" id="box-6" data-cell-index='6'></div>
+              <div class="tic-box" id="box-7" data-cell-index='7'></div>
+              <div class="tic-box" id="box-8" data-cell-index='8'></div>
+
+            </section>
+          </div>
+          <!-- Tic Tac Toe Board End -->
+        </div>
+      </section>
+      <!-- Logged in User Interface End -->
+    </div>
+  </div>
+</body>
+
 </html>

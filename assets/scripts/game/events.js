@@ -6,6 +6,7 @@ const getFormFields = require('../../../lib/get-form-fields')
 
 store.turnValue = ''
 
+
 const onCreateGame = function (event) {
   console.log('event', event)
   event.preventDefault()
@@ -20,18 +21,13 @@ const onCreateGame = function (event) {
 }
 
 const onUpdateGame = function (event) {
-  // get data from user input
-  // send data to api for update
-    // handle successful update
-    // handle game over
-    // handle game continue
   event.preventDefault()
   console.log('Event Logged here:', event)
   const gameEvent = event.currentTarget
   console.log('gameEvent Target Logged here:', event)
 
-  const gameIndex = $(gameEvent).data('cell-index')
-  console.log('gameIndex info: ', gameIndex)
+  store.clickIndex = $(gameEvent).data('cell-index')
+  console.log('store.clickIndex info: ', store.clickIndex)
   store.game.__v++
   if (store.game.__v % 2 === 0) {
     store.turnValue = 'o'
@@ -41,12 +37,12 @@ const onUpdateGame = function (event) {
   const id = store.game._id
   console.log('Game ID Number:', id)
   console.log('Version ID Number:', store.game.__v)
-  $(gameIndex).addClass(store.turnValue)
+  $(store.clickIndex).addClass(store.turnValue)
 
   const gameInfo = {
     game: {
       cell: {
-        index: gameIndex,
+        index: store.clickIndex,
         value: store.turnValue
       },
       over: store.game.over
