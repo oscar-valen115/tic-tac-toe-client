@@ -71,6 +71,7 @@ margin-left: 4px;
   justify-content: center;
   text-align: center;
   border: 1px solid black;
+  color: black;
   display: none;
 }
 
@@ -78,6 +79,7 @@ margin-left: 4px;
   justify-content: center;
   text-align: center;
   border: 1px solid black;
+  color: black;
   display: none;
 }
 
@@ -86,6 +88,7 @@ margin-left: 4px;
   // height: 100%;
   // width: auto;
   border: 1px solid black;
+  // color: black;
 }
 .game-board {
   width: 50vw;
@@ -96,6 +99,7 @@ margin-left: 4px;
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(3, auto);
+  color: black;
 }
 
 .tic-box {

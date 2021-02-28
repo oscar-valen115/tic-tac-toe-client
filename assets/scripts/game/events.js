@@ -5,6 +5,12 @@ const store = require('./../store')
 const getFormFields = require('../../../lib/get-form-fields')
 
 store.turnValue = ''
+store.turnCount = 0
+
+// X and O atributes as well as turn
+const xClass = 'x'
+const circleClass = 'o'
+let xTurn
 
 
 const onCreateGame = function (event) {
@@ -23,20 +29,21 @@ const onCreateGame = function (event) {
 const onUpdateGame = function (event) {
   event.preventDefault()
   console.log('Event Logged here:', event)
-  const gameEvent = event.currentTarget
-  console.log('gameEvent Target Logged here:', event)
+  const gameEvent = event.target
+  console.log('gameEvent Target Logged here:', gameEvent)
 
   store.clickIndex = $(gameEvent).data('cell-index')
   console.log('store.clickIndex info: ', store.clickIndex)
-  store.game.__v++
-  if (store.game.__v % 2 === 0) {
+  console.log('Store Info: ', store)
+  store.turnCount++
+  if (store.turnCount % 2 === 0) {
     store.turnValue = 'o'
   } else {
     store.turnValue = 'x'
   }
   const id = store.game._id
   console.log('Game ID Number:', id)
-  console.log('Version ID Number:', store.game.__v)
+  console.log('Version ID Number:', store.turnCount)
   $(store.clickIndex).addClass(store.turnValue)
 
   const gameInfo = {
@@ -51,6 +58,9 @@ const onUpdateGame = function (event) {
 
   api.updateGame(id, gameInfo)
     .then(ui.updateGameSuccess)
+    .then(function () {
+      $(event.target).text(store.turnValue)
+    })
     .catch(ui.updateGameFailure)
 }
 // const isGameWon = function (game) {
@@ -70,6 +80,40 @@ const onUpdateGame = function (event) {
 //     console.log('Else hit:', game.cells)
 //   }
 // }
+
+const startGame = function () {
+  store.turnValue = 'x'
+  setGameBoardHover()
+}
+const setGameBoardHover = function () {
+  $('.game-board').removeClass(xClass)
+  $('.game-board').removeClass(circleClass)
+  if (store.turnValue === 'x') {
+    $('.game-board').addClass(xClass)
+  } else if (store.turnValue === 'o') {
+    $('.game-board').addClass(circleClass)
+  }
+}
+
+function handleClick(event) {
+  const cell = event.target
+  const currentClass = xTurn ? circleClass : xClass
+  placeMarker(cell, currentClass)
+  swapTurns()
+  setGameBoardHoverClass()
+  // placeMark
+  // Check for win
+  // check for draw
+  // Switch Turns
+}
+
+function placeMarker(cell, currentClass) {
+  cell.classList.add(currentClass)
+}
+
+function swapTurns() {
+  xTurn = !xTurn
+}
 
 module.exports = {
   onCreateGame,
