@@ -34,9 +34,6 @@ const onUpdateGame = function (event) {
       store.turnValue = 'x'
     }
     const id = store.game._id
-    console.log('Game ID Number:', id)
-    console.log('Version ID Number:', store.turnCount)
-    // $(store.clickIndex).addClass(store.turnValue)
 
     const gameInfo = {
       game: {
@@ -57,6 +54,7 @@ const onUpdateGame = function (event) {
       .catch(ui.updateGameFailure)
   }
 }
+
 // Game Logic section - start
 const isGameWon = function () {
   const winner = (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2]) ||

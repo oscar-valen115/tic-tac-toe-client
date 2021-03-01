@@ -45,17 +45,5 @@ $(() => {
     $('#change-password').on('submit', authEvents.onChangePassword)
   })
 
-  // Console log event example that works
-  $('#logged-in-user').on('click', '#box-0', function (event) {
-    console.log('click event logged!', event)
-  })
-
-  // Click event test that works
-  // $('.tic-box').on('click', function (event) {
-  //   console.log('Click Event Data: ', event)
-  //   const data = event.target
-  //   console.log('Targeted Box', data)
-  // })
-
   $('.tic-box').on('click', gameEvents.onUpdateGame)
 })

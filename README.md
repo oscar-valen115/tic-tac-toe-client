@@ -42,3 +42,5 @@ As a user, I want to be able to:
   - Be notified when there's a win,loss or tie
   - Play a new game
   - View number of games played
+
+## Unsolved Problems
