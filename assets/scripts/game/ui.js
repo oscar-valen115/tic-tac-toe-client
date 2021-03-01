@@ -1,7 +1,5 @@
 // const config = require('../config')
-
 const store = require('./../store')
-const gameEvents = require('./events')
 
 const createGameSuccess = function (response) {
   console.log('createGameSuccessData:', response)
@@ -13,18 +11,17 @@ const createGameSuccess = function (response) {
   store.game = response.game
 }
 
+const spotTaken = function () {
+  console.log('Try a new spot!!!')
+}
+
 const updateGameSuccess = function (response) {
   console.log('updateGameSuccess Response: ', response)
   store.game = response.game
-  
-
   const addClass = store.turnValue
   console.log('addClass object: ', addClass)
   const cell = store.game.cells
   console.log('Response event', response.target)
-  
-
-
   // const currentClass = cell ? $('.game-board').addClass(xClass) : $('.game-board').addClass(circleClass)
   console.log('createGameSuccess Version ID: ', store.turnCount)
   console.log('Current Store Value after SUCCESS: ', store)
@@ -34,8 +31,19 @@ const updateGameFailure = function (response) {
   console.log('updateGameFailure: ', response)
 }
 
+const showGameWon = function () {
+  console.log('You won!!!')
+}
+
+const tie = function () {
+  console.log('Tie game!!!!!!!!')
+}
+
 module.exports = {
   createGameSuccess,
   updateGameSuccess,
-  updateGameFailure
+  updateGameFailure,
+  spotTaken,
+  showGameWon,
+  tie
 }

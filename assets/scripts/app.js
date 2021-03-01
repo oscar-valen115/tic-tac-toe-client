@@ -45,11 +45,10 @@ $(() => {
     $('#change-password').on('submit', authEvents.onChangePassword)
   })
 
-  // $('#logged-in-user').on('click', '')
   // Console log event example that works
-  // $('#logged-in-user').on('click', '#box-0', function (event) {
-  //   console.log('click event logged!', event)
-  // })
+  $('#logged-in-user').on('click', '#box-0', function (event) {
+    console.log('click event logged!', event)
+  })
 
   // Click event test that works
   // $('.tic-box').on('click', function (event) {
