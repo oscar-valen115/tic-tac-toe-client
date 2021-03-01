@@ -8,13 +8,14 @@
 }
 
 html,body{
-// background-color: #333;
-  background-color: white;
   height: 100%;
   font-family: 'Numans', sans-serif;
-  color: white;
 }
-
+.game-title {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
 .card{
   margin-top: 20em;
   height: 370px;
