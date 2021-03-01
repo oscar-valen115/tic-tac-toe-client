@@ -11,17 +11,11 @@ The first mistake I had was working on the style but quickly pivoted to working 
 
 ## Technologies Used
 
- | HTML5 |
-  -
+- HTML5
+- CSS3
+- Javascript
+- jQuery
 
- | CSS3 |
- -
-
-| Javascript |
- -
-
-| jQuery |
- -
 
 ## Wireframe Layout
 
