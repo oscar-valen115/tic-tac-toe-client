@@ -199,3 +199,9 @@ margin-left: 4px;
   height: calc($tic-box-mark-size * 0.7);
   background-color: white;
 }
+
+#game-won-success, #game-tie {
+  color: black;
+  text-align: center;
+  display: flex;
+}

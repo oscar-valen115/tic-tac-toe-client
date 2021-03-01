@@ -2,8 +2,6 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 
-const getFormFields = require('../../../lib/get-form-fields')
-
 store.turnValue = ''
 store.turnCount = 0
 
@@ -12,13 +10,9 @@ const xClass = 'x'
 const circleClass = 'o'
 let xTurn
 
-
-const onCreateGame = function (event) {
-  event.preventDefault()
-  const form = event.target
-  const data = getFormFields(form)
-
-  api.createGame(data)
+const onCreateGame = function () {
+  reset()
+  api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
 }
@@ -26,9 +20,7 @@ const onCreateGame = function (event) {
 const onUpdateGame = function (event) {
   event.preventDefault()
   store.clickedBox = $(event.target)
-  console.log('store.clickedBox Target Logged here:', store.clickedBox)
   store.clickIndex = store.clickedBox.data('cell-index')
-  console.log('store.clickIndex info: ', store.clickIndex)
 
   if (store.game.over) {
     ui.showGameWon()
@@ -61,12 +53,10 @@ const onUpdateGame = function (event) {
       .then(function () {
         store.clickedBox.text(store.turnValue)
         isGameWon()
-        console.log('Store Data Once Game is won: ', store)
       })
       .catch(ui.updateGameFailure)
   }
 }
-
 // Game Logic section - start
 const isGameWon = function () {
   const winner = (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2]) ||
@@ -101,6 +91,12 @@ const isGameWon = function () {
 //     $('.game-board').addClass(circleClass)
 //   }
 // }
+
+const reset = function () {
+  store.turnValue = 'x'
+  store.turnCount = 0
+  $('.tic-box').text('')
+}
 
 // Game Logic section - end
 

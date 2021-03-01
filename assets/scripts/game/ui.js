@@ -32,11 +32,11 @@ const updateGameFailure = function (response) {
 }
 
 const showGameWon = function () {
-  console.log('You won!!!')
+  $('#game-won-success').html('<h2>You won!</h2>')
 }
 
 const tie = function () {
-  console.log('Tie game!!!!!!!!')
+  $('#game-tie').html('<h2>Tie!</h2>')
 }
 
 module.exports = {
