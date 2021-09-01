@@ -48,7 +48,7 @@
           </div>
           <div class="card-footer">
             <div class="d-flex justify-content-center links">
-              Don't have an account?<button id="sign-up-button"> Sign Up </button>
+              Don't have an account?<a href="#sign-up" id="sign-up-button"> Sign Up </a>
             </div>
             <!-- <div class="d-flex justify-content-center">
             					<a href="#">Forgot your password?</a>
@@ -82,8 +82,8 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-key"></i></span>
                 </div>
-                <input type="password" name='credentials[password]' class="form-control" placeholder="Confirm Password"
-                  required>
+                <input type="password" name='credentials[password_confirmation]' class="form-control"
+                  placeholder="Confirm Password" required>
               </div>
               <div class="form-group">
                 <div id="error-message"> </div>
@@ -155,26 +155,26 @@
           </div>
           <!-- Tic Tac Toe Board -->
 
-          <div class=" col-6 tic-container justify-content-center">
-            <section class="game-board" id="game-board">
+          <!-- <div class=" col-6 tic-container justify-content-center"> -->
+          <section class="game-board" id="game-board">
 
-              <div class="tic-box" id="box-0" data-cell-index='0'></div>
-              <div class="tic-box" id="box-1" data-cell-index='1'></div>
-              <div class="tic-box" id="box-2" data-cell-index='2'></div>
+            <div class="tic-box" id="box-0" data-cell-index='0'></div>
+            <div class="tic-box" id="box-1" data-cell-index='1'></div>
+            <div class="tic-box" id="box-2" data-cell-index='2'></div>
 
-              <div class="tic-box" id="box-3" data-cell-index='3'></div>
-              <div class="tic-box" id="box-4" data-cell-index='4'></div>
-              <div class="tic-box" id="box-5" data-cell-index='5'></div>
+            <div class="tic-box" id="box-3" data-cell-index='3'></div>
+            <div class="tic-box" id="box-4" data-cell-index='4'></div>
+            <div class="tic-box" id="box-5" data-cell-index='5'></div>
 
-              <div class="tic-box" id="box-6" data-cell-index='6'></div>
-              <div class="tic-box" id="box-7" data-cell-index='7'></div>
-              <div class="tic-box" id="box-8" data-cell-index='8'></div>
+            <div class="tic-box" id="box-6" data-cell-index='6'></div>
+            <div class="tic-box" id="box-7" data-cell-index='7'></div>
+            <div class="tic-box" id="box-8" data-cell-index='8'></div>
 
-            </section>
-            <div id="game-won-success"></div>
-            <div id="game-tie"></div>
+          </section>
+          <div id="game-won-success"></div>
+          <div id="game-tie"></div>
 
-          </div>
+          <!-- </div> -->
           <!-- Tic Tac Toe Board End -->
         </div>
       </section>
