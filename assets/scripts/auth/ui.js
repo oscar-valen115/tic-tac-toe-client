@@ -1,5 +1,4 @@
 const store = require('./../store')
-const authEvents = require('./events')
 
 const signInSuccess = function (response) {
   store.user = response.user
