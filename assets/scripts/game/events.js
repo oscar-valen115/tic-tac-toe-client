@@ -6,9 +6,6 @@ store.turnValue = ''
 store.turnCount = 0
 
 // X and O atributes as well as turn
-const xClass = 'x'
-const circleClass = 'o'
-let xTurn
 
 const onCreateGame = function () {
   reset()

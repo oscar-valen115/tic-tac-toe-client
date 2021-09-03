@@ -16,15 +16,11 @@ const spotTaken = function () {
 }
 
 const updateGameSuccess = function (response) {
-  console.log('updateGameSuccess Response: ', response)
   store.game = response.game
   const addClass = store.turnValue
   console.log('addClass object: ', addClass)
   const cell = store.game.cells
-  console.log('Response event', response.target)
-  // const currentClass = cell ? $('.game-board').addClass(xClass) : $('.game-board').addClass(circleClass)
-  console.log('createGameSuccess Version ID: ', store.turnCount)
-  console.log('Current Store Value after SUCCESS: ', store)
+  // const currentClass = cell ? $('.game-board').addClass('x') : $('.game-board').addClass('o')
 }
 
 const updateGameFailure = function (response) {
