@@ -8,7 +8,9 @@
   <!-- Do not add `link` tags-->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   <!-- <link rel="stylesheet" type="text/css" href="./assets/styles/index.scss"> -->
   <!-- Do not add `script` tags-->
@@ -20,7 +22,7 @@
   <div class="container">
     <section class="auth-section">
       <div class="game-title">
-        <h1 class="game-title">Tic Tac Toe</h1>
+        <h1>Tic Tac Toe</h1>
       </div>
       <!-- Sign in card -->
       <div class="card" id="sign-in-card">
@@ -137,51 +139,71 @@
 
     <!-- Logged in User Interface -->
     <section id="logged-in-user">
-      <div class="row">
-        <div class="col-6">
-          <button id="user-profile" class="btn login_btn ">User Profile</button>
-          <button id="change-password-button" class="btn login_btn">Change Password</button>
-          <button id="sign-out" class="btn login_btn">Sign Out</button>
-          <button id="create-game" class="btn login_btn">Start Game</button>
-          <button id="cancel-game" class="btn login_btn">Cancel Game</button>
-          <div id="start-game-message"></div>
+      <!-- <nav class="navbar navbar-expand-lg"> -->
+      <nav class="navbar navbar-expand">
+        <a class="navbar-brand" href="#">TTT</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" id="create-game" aria-current="page" href="#">Start Game</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="cancel-game" href="#">Cancel Game</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                User Profile
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" id="change-password-button" href="#">Change Password</a></li>
+                <!-- <li><a class="dropdown-item game-history" href="#">Game History</a></li> -->
+                <li><a class="dropdown-item" id="sign-out" href="#">Sign Out</a></li>
+                <li>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="game-container row">
+        <div class="col-sm-4 player-container">
           <div id="player1">
             <h3>Player 1</h3>
-            <div class="x">x</div>
+            <div class="player-box playerx"></div>
           </div>
-
           <div id="player2">
             <h3>Player 2</h3>
-            <div class="o">O</div>
+            <div class="player-box playero"></div>
+            <!-- <div id="start-game-message"></div> -->
           </div>
         </div>
         <!-- Tic Tac Toe Board -->
-
-        <!-- <div class=" col-6 tic-container justify-content-center"> -->
-        <section class="game-board x" id="game-board">
-
-          <div class="tic-box x" id="box-0" data-cell-index='0'></div>
-          <div class="tic-box" id="box-1" data-cell-index='1'></div>
-          <div class="tic-box" id="box-2" data-cell-index='2'></div>
-
-          <div class="tic-box" id="box-3" data-cell-index='3'></div>
-          <div class="tic-box" id="box-4" data-cell-index='4'></div>
-          <div class="tic-box" id="box-5" data-cell-index='5'></div>
-
-          <div class="tic-box" id="box-6" data-cell-index='6'></div>
-          <div class="tic-box" id="box-7" data-cell-index='7'></div>
-          <div class="tic-box" id="box-8" data-cell-index='8'></div>
-
-        </section>
-        <div id="game-won-success"></div>
-        <div id="game-tie"></div>
-
-        <!-- </div> -->
+        <div class="col-sm-8 tic-container">
+          <section class="game-board" id="game-board">
+            <div class="tic-box" id="box-0" data-cell-index='0'></div>
+            <div class="tic-box" id="box-1" data-cell-index='1'></div>
+            <div class="tic-box" id="box-2" data-cell-index='2'></div>
+            <div class="tic-box" id="box-3" data-cell-index='3'></div>
+            <div class="tic-box" id="box-4" data-cell-index='4'></div>
+            <div class="tic-box" id="box-5" data-cell-index='5'></div>
+            <div class="tic-box" id="box-6" data-cell-index='6'></div>
+            <div class="tic-box" id="box-7" data-cell-index='7'></div>
+            <div class="tic-box" id="box-8" data-cell-index='8'></div>
+          </section>
+          <div id="game-won-success"></div>
+          <div id="game-tie"></div>
+          <button type="button" class="btn btn-dark new-game-button">New Game?</button>
+        </div>
         <!-- Tic Tac Toe Board End -->
       </div>
     </section>
     <!-- Logged in User Interface End -->
-    <!-- </div> -->
   </div>
 </body>
 

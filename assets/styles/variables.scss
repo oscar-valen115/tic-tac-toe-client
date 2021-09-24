@@ -2,4 +2,4 @@
 
 $tic-box-size: 100px;
 
-$tic-box-mark-size: calc($tic-box-size * .9);
+$tic-box-mark-size: calc(#{$tic-box-size }* .9);

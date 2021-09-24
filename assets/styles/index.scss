@@ -1,5 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css?family=Numans');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import './variables.scss';
 
 *::after,
@@ -10,22 +10,22 @@
 }
 
 html,body{
-  font-family: 'Numans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  background-color: #0e153a;
+  // background-color: white;
+  color: #e2f3f5;
 }
 
 .container {
   width: 100vw;
   height: 100vh;
-  // border: solid violet;
 }
-
 
 .card{
   height: 370px;
   width: 400px;
   background-color: rgba(0,0,0,0.3) !important;
 }
-
 
 .card-header h3{
   color: white;
@@ -64,12 +64,6 @@ color: white;
 margin-left: 4px;
 }
 
-#logged-in-user {
-  width: 100%;
-  height: auto;
-  margin-top: 5rem;
-}
-
 .auth-section {
   display: flex;
   flex-direction: column;
@@ -77,84 +71,175 @@ margin-left: 4px;
   justify-content: center;
   height: 100%;
   gap: 3.5em 0;
-  // border: black solid;
 }
-.game-title {
+
+#logged-in-user {
+  width: 100%;
+  color: #e2f3f5;
+  align-items: center;
+}
+
+.navbar {
+  // background-color: #162361;
+}
+
+.navbar-brand {
+  color: #22d1ee;
+  font-weight: 700;
+}
+
+.nav-item .nav-link {
+  color: #e2f3f5;
+}
+
+.dropdown-menu {
+  color: #e2f3f5;
+}
+
+#cancel-game {
+  display: none;
+}
+
+
+.game-title h1 {
   font-size: 64px;
   font-weight: 700;
 }
 
-#player1 {
-  justify-content: center;
+#game-won-success, #game-tie {
   text-align: center;
-  border: 1px solid black;
-  color: black;
-  display: none;
+  display: flex;
+  // color: 
 }
 
-#player2 {
-  justify-content: center;
-  text-align: center;
-  border: 1px solid black;
-  color: black;
-  display: none;
+#sign-up-button {
+  color:rgb(17, 159, 145);
 }
 
 .tic-container {
-  // width: 100vw;
-  // height: 100vh;
-  border: 1px solid black;
-  // color: black;
+  margin-top: 2em;
+  align-items: center;
+  justify-content: center;
+  display: none;
 }
+
 .game-board {
-  width: 100vw;
-  height: 50vh;
   display: grid;
   justify-content: center;
   align-content: center;
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(3, auto);
+
 }
 
 .tic-box {
-  // border: 3px solid rgb(17, 159, 145);
-  // text-align: center;
-  // padding: 2rem 2rem 2rem 2rem
+  text-align: center;
   width: 100px;
   height: 100px;
-  border: 1px solid black;
+  border: 1px solid #22d1ee;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   position: relative;
-  cursor: pointer
 }
-// .tic-box:hover {
-//   background-color: #333;
-// }
 
 #box-0,#box-3,#box-6 {
   border-left: none;
 }
-
 #box-2,#box-5,#box-8 {
   border-right: none;
 }
-
 #box-0,#box-1,#box-2 {
   border-top: none;
 }
-
 #box-6,#box-7,#box-8 {
   border-bottom: none;
+}
+
+
+.tic-box.x,
+.tic-box.o {
+  cursor: not-allowed;
 }
 
 .tic-box.x::before,
 .tic-box.x::after,
 .tic-box.o::before {
-  background-color: black;
+  background-color: white;
 }
+
+#player1 {
+  display: none;
+}
+
+#player2 {
+  display: none;
+}
+.player-container {
+  display: grid;
+  grid-template-columns: 1;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
+}
+.player-box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/* will add back later once confirmed no more issues*/
+.playerx::before,
+.playerx::after,
+.playero::before {
+  background-color: white;
+}
+
+.playero::before,
+.playero::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+
+.playero::before {
+  width: $tic-box-mark-size;
+  height: $tic-box-mark-size;
+}
+
+.playero::after {
+  width: calc(#{$tic-box-mark-size} * 0.7);
+  height: calc(#{$tic-box-mark-size} * 0.7);
+  background-color: #0e153a;
+}
+
+.playerx::before,
+.playerx::after {
+  content: '';
+  position: absolute;
+  width: calc(#{$tic-box-mark-size} * .15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerx::before {
+  height: $tic-box-mark-size;
+  transform: rotate(45deg);
+}
+
+.playerx::after {
+  height: $tic-box-mark-size;
+  transform: rotate(-45deg);
+}
+/* */
+
+
 
 .game-board.x .tic-box:not(.x):not(.o):hover::before,
 .game-board.x .tic-box:not(.x):not(.o):hover::after,
@@ -162,29 +247,32 @@ margin-left: 4px;
   background-color: lightgrey;
 }
 
-.game-board.o .tic-box:not(.x):not(.o):hover::before,
-.game-board.o .tic-box:not(.x):not(.o):hover::after {
-  background-color: lightgrey;
-}
-
-.tic-box.x::before,
-.game-board.x .tic-box:hover::before {
-  transform: rotate(45deg);
-}
-
-.tic-box.x::after,
-.game-board.x .tic-box:hover::after {
-  transform: rotate(-45deg);
-}
-
 .tic-box.x::before,
 .tic-box.x::after,
 .game-board.x .tic-box:not(.x):not(.o):hover::before,
 .game-board.x .tic-box:not(.x):not(.o):hover::after {
-  content: "";
+  content: '';
   position: absolute;
-  width: calc($tic-box-mark-size * 0.15);
-  height: calc($tic-box-size * 0.9);
+  width: calc(#{$tic-box-mark-size} * .15);
+  height: $tic-box-mark-size;
+}
+
+.tic-box.x::before,
+.game-board.x .tic-box:not(.x):not(.o):hover::before {
+  transform: rotate(45deg);
+}
+.tic-box.x::after,
+.game-board.x .tic-box:not(.x):not(.o):hover::after {
+  transform: rotate(-45deg);
+}
+
+.tic-box.o::before,
+.tic-box.o::after,
+.game-board.o .tic-box:not(.x):not(.o):hover::before,
+.game-board.o .tic-box:not(.x):not(.o):hover::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
 }
 
 .tic-box.o::before,
@@ -195,41 +283,12 @@ margin-left: 4px;
 
 .tic-box.o::after,
 .game-board.o .tic-box:not(.x):not(.o):hover::after {
-  width: calc($tic-box-mark-size * 0.7);
-  height: calc($tic-box-mark-size * 0.7);
-  background-color: white;
+  width: calc(#{$tic-box-mark-size} * 0.7);
+  height: calc(#{$tic-box-mark-size} * 0.7);
+  background-color: #0e153a;
 }
 
-.tic-box.o::before,
-.tic-box.o::after,
-.game-board.o .tic-box:not(.x):not(.o):hover::before,
-.game-board.o .tic-box:not(.x):not(.o):hover::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  width: $tic-box-mark-size;
-  height: $tic-box-mark-size;
-}
-
-// .tic-box.o::before,
-// .game-board.o .tic-box:not(.x):not(.o):hover::before {
-//   width: $tic-box-mark-size;
-//   height: $tic-box-mark-size;
-// }
-
-// .tic-box.o::after,
-// .game-board.o .tic-box:not(.x):not(.o):hover::after {
-//   width: calc($tic-box-mark-size * 0.7);
-//   height: calc($tic-box-mark-size * 0.7);
-//   background-color: white;
-// }
-
-#game-won-success, #game-tie {
-  color: black;
-  text-align: center;
-  display: flex;
-}
-
-#sign-up-button {
-  color:rgb(17, 159, 145);
+.btn.btn-dark {
+  display: none;
+  background-color: rgb(17, 159, 145);
 }
