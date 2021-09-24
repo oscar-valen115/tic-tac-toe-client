@@ -7,6 +7,8 @@
 // require('./example')
 const authEvents = require('./auth/events')
 const gameEvents = require('./game/events')
+const uiEvents = require('./auth/ui')
+
 
 $(() => {
   // Authentication Events
@@ -16,12 +18,11 @@ $(() => {
   $('#sign-up-card').hide()
   $('#change-password-card').hide()
 
-  // $('#sign-in-card').hide()
-
   // Logged in events
   $('#logged-in-user').hide()
   $('#logged-in-user').on('click', '#create-game', gameEvents.onCreateGame)
   $('#logged-in-user').on('click', '#sign-out', authEvents.onSignOut)
+  $('#change-password').on('submit', authEvents.onChangePassword)
 
   // From sign-in-card, click sign-up-button to sign up for existing users
   $('#sign-up-button').on('click', function (event) {
@@ -38,12 +39,15 @@ $(() => {
   })
 
   // successfully change password once logged in to the main UI
-  $('#logged-in-user').on('click', '#change-password-button', function (event) {
-    event.preventDefault()
-    $('#logged-in-user').hide()
-    $('#change-password-card').show()
-    $('#change-password').on('submit', authEvents.onChangePassword)
-  })
 
+  $('#change-password-button').on('click', function (event) {
+    event.preventDefault()
+    $('.auth-section').show()
+    $('#sign-up-card').hide()
+    $('#sign-in-card').hide()
+    $('#change-password-card').show()
+  })
   $('.tic-box').on('click', gameEvents.onUpdateGame)
+  $('.new-game-button').on('click', gameEvents.onStartNewGame)
+  $('#cancel-game').on('click', uiEvents.resetGame)
 })

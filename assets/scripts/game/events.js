@@ -2,16 +2,10 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 
-store.turnValue = ''
+store.turnValue = 'x'
 store.turnCount = 0
 
-// X and O atributes as well as turn
-const xClass = 'x'
-const circleClass = 'o'
-let xTurn
-
 const onCreateGame = function () {
-  reset()
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -24,8 +18,6 @@ const onUpdateGame = function (event) {
 
   if (store.game.over) {
     ui.showGameWon()
-  } else if (store.clickedBox.text() !== '') {
-    ui.spotTaken()
   } else {
     store.turnCount++
     if (store.turnCount % 2 === 0) {
@@ -48,7 +40,14 @@ const onUpdateGame = function (event) {
     api.updateGame(id, gameInfo)
       .then(ui.updateGameSuccess)
       .then(function () {
-        store.clickedBox.text(store.turnValue)
+        $(`#box-${store.clickIndex}`).addClass(store.turnValue)
+        if(store.turnValue === 'o') {
+          $('.game-board').removeClass('o')
+          $('.game-board').addClass('x')
+        } else if (store.turnValue === 'x') {
+          $('.game-board').removeClass('x')
+          $('.game-board').addClass('o')
+        }
         isGameWon()
       })
       .catch(ui.updateGameFailure)
@@ -56,6 +55,34 @@ const onUpdateGame = function (event) {
 }
 
 // Game Logic section - start
+
+// const resetGame = function () {
+//   store.turnValue = ''
+//   store.turnCount = 0
+//   $('.game-board').removeClass('o')
+//   $('.game-board').removeClass('x')
+//   $('#box-0').removeClass('x')
+//   $('#box-1').removeClass('x')
+//   $('#box-2').removeClass('x')
+//   $('#box-3').removeClass('x')
+//   $('#box-4').removeClass('x')
+//   $('#box-5').removeClass('x')
+//   $('#box-6').removeClass('x')
+//   $('#box-7').removeClass('x')
+//   $('#box-8').removeClass('x')
+//   $('#box-0').removeClass('o')
+//   $('#box-1').removeClass('o')
+//   $('#box-2').removeClass('o')
+//   $('#box-3').removeClass('o')
+//   $('#box-4').removeClass('o')
+//   $('#box-5').removeClass('o')
+//   $('#box-6').removeClass('o')
+//   $('#box-7').removeClass('o')
+//   $('#box-8').removeClass('o')
+//   // $('.tic-box').text('')
+// }
+
+// Game Logic section - end
 const isGameWon = function () {
   const winner = (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[1] && store.game.cells[1] === store.game.cells[2]) ||
                  (store.game.cells[0] !== '' && store.game.cells[0] === store.game.cells[4] && store.game.cells[4] === store.game.cells[8]) ||
@@ -75,31 +102,22 @@ const isGameWon = function () {
   }
 }
 
-// const startGame = function () {
-//   store.turnValue = 'x'
-//   setGameBoardHover()
-// }
-
-// const setGameBoardHover = function () {
-//   $('.game-board').removeClass(xClass)
-//   $('.game-board').removeClass(circleClass)
-//   if (store.turnValue === 'x') {
-//     $('.game-board').addClass(xClass)
-//   } else if (store.turnValue === 'o') {
-//     $('.game-board').addClass(circleClass)
-//   }
-// }
-
-const reset = function () {
+const onStartNewGame = function (event) {
+  event.preventDefault()
   store.turnValue = 'x'
   store.turnCount = 0
-  $('.tic-box').text('')
+  api.createGame()
+    .then(ui.createNewGameSuccess)
+    .catch(ui.createGameFailure)
 }
 
-// Game Logic section - end
+const onGetGamesHistory = function (event) {
+  event.preventDefault()
+}
 
 module.exports = {
   onCreateGame,
   onUpdateGame,
-  isGameWon
+  onStartNewGame,
+  onGetGamesHistory
 }
